@@ -61,41 +61,41 @@ app.use("*", async (req, res) => {
 //   console.log("Fetched and updated New Data");
 // });
 
-cron.schedule("8 9 * * 1-5", async () => {
-  console.log("Fetching Nifty All Data at 9:09 AM");
-  await fetchAndStoreNiftyAllData();
-});
-cron.schedule("15 9 * * 1-5", async () => {
-  console.log("Starting to fetch New Data");
-  await fetchAndStoreNifty500Data();
-  await fetchNiftyBankData();
-  await fetchSecuritiesFOData();
-  await fetchNifty50Data();
-  console.log("Fetched and updated New Data");
-});
+// cron.schedule("8 9 * * 1-5", async () => {
+//   console.log("Fetching Nifty All Data at 9:09 AM");
+//   await fetchAndStoreNiftyAllData();
+// });
+// cron.schedule("15 9 * * 1-5", async () => {
+//   console.log("Starting to fetch New Data");
+//   await fetchAndStoreNifty500Data();
+//   await fetchNiftyBankData();
+//   await fetchSecuritiesFOData();
+//   await fetchNifty50Data();
+//   console.log("Fetched and updated New Data");
+// });
 
 
 
-cron.schedule("*/15 9-15 * * 1-5", async () => {
-  const currentHour = new Date().getHours();
-  const currentMinute = new Date().getMinutes();
+// cron.schedule("*/15 9-15 * * 1-5", async () => {
+//   const currentHour = new Date().getHours();
+//   const currentMinute = new Date().getMinutes();
 
-  if (
-    (currentHour >= 15 && currentMinute > 29) ||
-    (currentHour === 9 && currentMinute <= 29)
-  ) {
-    console.log(`Cron Job ran at ${currentHour} : ${currentMinute}`);
-    return;
-  }
+//   if (
+//     (currentHour >= 15 && currentMinute > 29) ||
+//     (currentHour === 9 && currentMinute <= 29)
+//   ) {
+//     console.log(`Cron Job ran at ${currentHour} : ${currentMinute}`);
+//     return;
+//   }
 
-  console.log("Starting to fetch New Data");
-  // await fetchAndUpdateTradeInfoData();
-  await fetchAndUpdateNifty500Data();
-  await fetchAndUpdateNiftyBankData();
-  await fetchAndUpdateSecuritiesFOData();
-  await fetchAndUpdateNifty50Data();
-  console.log("Fetched and updated New Data");
-});
+//   console.log("Starting to fetch New Data");
+//   // await fetchAndUpdateTradeInfoData();
+//   await fetchAndUpdateNifty500Data();
+//   await fetchAndUpdateNiftyBankData();
+//   await fetchAndUpdateSecuritiesFOData();
+//   await fetchAndUpdateNifty50Data();
+//   console.log("Fetched and updated New Data");
+// });
 
 app.listen(PORT, (err) => {
   if (err) {
