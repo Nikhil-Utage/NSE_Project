@@ -1,0 +1,25 @@
+.data-grid-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.data-grid {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.data-grid .MuiDataGrid-columnHeader[data-field="symbol"],
+.data-grid .MuiDataGrid-cell[data-field="symbol"] {
+  position: sticky;
+  left: 0;
+  z-index: 1; /* Ensure it's above other columns */
+  background-color: white; /* Match with your grid background */
+}
+
+.data-grid .MuiDataGrid-columnHeader,
+.data-grid .MuiDataGrid-cell {
+  border: 1px solid lightgray; /* Optional: add borders for better visibility */
+}
